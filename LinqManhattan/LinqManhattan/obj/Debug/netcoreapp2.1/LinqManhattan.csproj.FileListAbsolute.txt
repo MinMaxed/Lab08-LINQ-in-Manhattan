@@ -1,0 +1,11 @@
+C:\Users\Max\codefellows\401 ASP.NET C#\Lab08-LINQ-in-Manhattan\LinqManhattan\LinqManhattan\bin\Debug\netcoreapp2.1\LinqManhattan.deps.json
+C:\Users\Max\codefellows\401 ASP.NET C#\Lab08-LINQ-in-Manhattan\LinqManhattan\LinqManhattan\bin\Debug\netcoreapp2.1\LinqManhattan.runtimeconfig.json
+C:\Users\Max\codefellows\401 ASP.NET C#\Lab08-LINQ-in-Manhattan\LinqManhattan\LinqManhattan\bin\Debug\netcoreapp2.1\LinqManhattan.runtimeconfig.dev.json
+C:\Users\Max\codefellows\401 ASP.NET C#\Lab08-LINQ-in-Manhattan\LinqManhattan\LinqManhattan\bin\Debug\netcoreapp2.1\LinqManhattan.dll
+C:\Users\Max\codefellows\401 ASP.NET C#\Lab08-LINQ-in-Manhattan\LinqManhattan\LinqManhattan\obj\Debug\netcoreapp2.1\LinqManhattan.csprojAssemblyReference.cache
+C:\Users\Max\codefellows\401 ASP.NET C#\Lab08-LINQ-in-Manhattan\LinqManhattan\LinqManhattan\obj\Debug\netcoreapp2.1\LinqManhattan.csproj.CoreCompileInputs.cache
+C:\Users\Max\codefellows\401 ASP.NET C#\Lab08-LINQ-in-Manhattan\LinqManhattan\LinqManhattan\obj\Debug\netcoreapp2.1\LinqManhattan.AssemblyInfoInputs.cache
+C:\Users\Max\codefellows\401 ASP.NET C#\Lab08-LINQ-in-Manhattan\LinqManhattan\LinqManhattan\obj\Debug\netcoreapp2.1\LinqManhattan.AssemblyInfo.cs
+C:\Users\Max\codefellows\401 ASP.NET C#\Lab08-LINQ-in-Manhattan\LinqManhattan\LinqManhattan\bin\Debug\netcoreapp2.1\LinqManhattan.pdb
+C:\Users\Max\codefellows\401 ASP.NET C#\Lab08-LINQ-in-Manhattan\LinqManhattan\LinqManhattan\obj\Debug\netcoreapp2.1\LinqManhattan.dll
+C:\Users\Max\codefellows\401 ASP.NET C#\Lab08-LINQ-in-Manhattan\LinqManhattan\LinqManhattan\obj\Debug\netcoreapp2.1\LinqManhattan.pdb
