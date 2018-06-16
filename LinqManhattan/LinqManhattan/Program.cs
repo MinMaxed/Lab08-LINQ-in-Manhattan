@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace LinqManhattan
 {
@@ -23,18 +24,29 @@ namespace LinqManhattan
             //StreamReader sr = new StreamReader(path);
             //StreamWriter sw = new StreamWriter(path);
 
-            RootObject manhatten = Newtonsoft.Json.JsonConvert.DeserializeObject<RootObject>(json); 
+            RootObject manhatten = Newtonsoft.Json.JsonConvert.DeserializeObject<RootObject>(json);
 
 
-            //public static string ReadJSON()
-            //{
-            //    string read;
-            //    using (sr)
-            //    {
-            //        read = sr.ReadToEnd(path);
-            //    }
-            //    return read;
-            //}
+
+            //var allAreas1 = manhatten.Features.Where(n => n.Properties.Neighborhood != "")
+            //                                    .GroupBy(g => g.Properties.Neighborhood)
+            //                                    .Select(m => m.First());
+
+
+
+            // THIS THING FREAKING WORKS!!!!!!!!
+            var allAreas = from i in manhatten.Features
+                           where i.Properties.Neighborhood != ""
+                           group i.Properties.Neighborhood by i.Properties.Neighborhood
+                           into myNeighborhood
+                           select myNeighborhood.Key;
+
+
+            foreach(var area in allAreas)
+            {
+                Console.WriteLine(area);
+            }
+            Console.ReadKey();
         }
     }
 }
