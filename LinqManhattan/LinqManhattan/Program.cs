@@ -20,33 +20,80 @@ namespace LinqManhattan
                 json = r.ReadToEnd();
             };
 
-
-            //StreamReader sr = new StreamReader(path);
-            //StreamWriter sw = new StreamWriter(path);
-
+            //Converts the JSON files data and puts it into a RootObject, which chains to the other classes  
+            // and allocates the data to the proper sections
             RootObject manhatten = Newtonsoft.Json.JsonConvert.DeserializeObject<RootObject>(json);
 
 
+            //finds the neighborhoods that aren't null
+            var areas = from i in manhatten.Features
+                        where i.Properties.Neighborhood != null
+                        select i;
 
-            //var allAreas1 = manhatten.Features.Where(n => n.Properties.Neighborhood != "")
-            //                                    .GroupBy(g => g.Properties.Neighborhood)
-            //                                    .Select(m => m.First());
+            foreach (var area in areas)
+            {
+                Console.WriteLine(area.Properties.Neighborhood);
+            }
+            Console.WriteLine("^ query 1");
+            Console.ReadKey();
+            Console.Clear();
+
+
+            //find areas without blanks from the previous query's results
+            var noBlanks = from i in areas
+                           where i.Properties.Neighborhood != ""
+                           select i;
+
+            foreach (var area in noBlanks)
+            {
+                Console.WriteLine(area.Properties.Neighborhood);
+            }
+            Console.WriteLine("^ query 2");
+            Console.ReadKey();
+            Console.Clear();
+
+            //eliminate duplicate areas
+            var noDoubles = noBlanks.GroupBy(i => i.Properties.Neighborhood).Select(s => s.First());
+
+            foreach (var area in noDoubles)
+            {
+                Console.WriteLine(area.Properties.Neighborhood);
+            }
+            Console.WriteLine("^ query 3");
+            Console.ReadKey();
+            Console.Clear();
 
 
 
-            // THIS THING FREAKING WORKS!!!!!!!!
+            // LINQ query to do all searches in one
             var allAreas = from i in manhatten.Features
                            where i.Properties.Neighborhood != ""
                            group i.Properties.Neighborhood by i.Properties.Neighborhood
                            into myNeighborhood
                            select myNeighborhood.Key;
 
-
-            foreach(var area in allAreas)
+            foreach (var area in allAreas)
             {
                 Console.WriteLine(area);
             }
+            Console.WriteLine("^ query 4");
             Console.ReadKey();
+            Console.Clear();
+
+
+            //Lambda queries to do all searches at once
+            var allAreas1 = manhatten.Features.Where(i => i.Properties.Neighborhood != "")
+                                              .GroupBy(g => g.Properties.Neighborhood)
+                                              .Select(s => s.First());
+
+            foreach (var area in allAreas1)
+            {
+                Console.WriteLine(area.Properties.Neighborhood);
+            }
+            Console.WriteLine("^ query 5");
+            Console.ReadKey();
+            Console.Clear();
         }
+
     }
 }
