@@ -5,7 +5,7 @@
 Given a json file with Manhatten based locations, this program is converting the .json into C# objects. Using LINQ and Lambda Queries, the data filters out Neighborhoods that have values/no blank names, Groups them together by neighborhood, then makes sure there are no duplicates names. That is stored in a variable so that they can be printed out on the Console. 
 
 ## Visual
-![alt text](\Lab08-LINQ-in-Manhattan\Visual.png)
+![alt text](https://github.com/MinMaxed/Lab08-LINQ-in-Manhattan/blob/master/Visual.png)
 
 
 ## What you need
