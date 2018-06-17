@@ -24,8 +24,7 @@ namespace LinqManhattan
             // and allocates the data to the proper sections
             RootObject manhatten = Newtonsoft.Json.JsonConvert.DeserializeObject<RootObject>(json);
 
-
-            //finds the neighborhoods that aren't null
+            //finds the neighborhoods that aren't null, LINQ
             var areas = from i in manhatten.Features
                         where i.Properties.Neighborhood != null
                         select i;
@@ -39,7 +38,7 @@ namespace LinqManhattan
             Console.Clear();
 
 
-            //find areas without blanks from the previous query's results
+            //find areas without blanks from the previous query's results, LINQ
             var noBlanks = from i in areas
                            where i.Properties.Neighborhood != ""
                            select i;
@@ -52,8 +51,8 @@ namespace LinqManhattan
             Console.ReadKey();
             Console.Clear();
 
-            //eliminate duplicate areas
-            var noDoubles = noBlanks.GroupBy(i => i.Properties.Neighborhood).Select(s => s.First());
+            //eliminate duplicate areas, lambda
+            var noDoubles = noBlanks.GroupBy(g => g.Properties.Neighborhood).Select(s => s.First());
 
             foreach (var area in noDoubles)
             {
@@ -67,6 +66,7 @@ namespace LinqManhattan
 
             // LINQ query to do all searches in one
             var allAreas = from i in manhatten.Features
+                           where i.Properties.Neighborhood != null
                            where i.Properties.Neighborhood != ""
                            group i.Properties.Neighborhood by i.Properties.Neighborhood
                            into myNeighborhood
@@ -82,11 +82,12 @@ namespace LinqManhattan
 
 
             //Lambda queries to do all searches at once
-            var allAreas1 = manhatten.Features.Where(i => i.Properties.Neighborhood != "")
+            var allAreasLambda = manhatten.Features.Where(i => i.Properties.Neighborhood != null)
+                                              .Where(i => i.Properties.Neighborhood != "")
                                               .GroupBy(g => g.Properties.Neighborhood)
                                               .Select(s => s.First());
 
-            foreach (var area in allAreas1)
+            foreach (var area in allAreasLambda)
             {
                 Console.WriteLine(area.Properties.Neighborhood);
             }
